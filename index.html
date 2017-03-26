@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>音乐播放器</title>
+	<link rel="stylesheet" type="text/css" href="css/index.css">
+	<link rel="stylesheet" type="text/css" href="css/iconfont/iconfont.css">
+	<!-- 标题前边的小图标 ，在下面的href中填上相应的路径-->
+	<link rel="shortcut icon" href="css/bitbug_favicon.ico">
+	
+	<!-- // <script type="text/javascript" src="js/index.js"></script> -->
+	
+</head>
+<body>
+	<div id="fm">
+		<audio id="music"></audio>
+		<div class="panel-min-wrap">
+			<div class="panel-min icon-music-b"></div>
+		</div>	
+		<div class="panel">
+			<!-- 返回键 、标题、频道列表按钮-->
+			<div class="header">
+				<div class="back iconfont icon-back" title="小窗口"></div>
+				<div class="title">
+					<p class="music-name"></p>
+					<p class="singer"></p>
+				</div>
+				<div class="channels-wrap">
+					<div class="channels iconfont icon-menu" title="频道"></div>
+					<ul class="channels-list">
+					</ul>
+				</div>							
+			</div>
+			<!-- 主要内容区 -->
+			<div class="content">
+				<!-- 歌词区域 -->
+				<div class="lyric">
+					<div class="lyric-ct auto">
+	                    <div class="lyric-box">
+	                    </div>
+	                </div>
+				</div>
+				<!-- 黑胶唱片 -->
+				<div class="rotate">					
+					<div class="disco">
+						<div class="cover"></div>
+						<div class="current-cover"></div>
+					</div>	
+					<div class="needle needle-pause"></div>
+				</div>
+			</div>
+			<!-- 音量控制区 -->
+			<div class="volume">
+				<div class="volume-button iconfont icon-volume-on" title="音量"></div>
+
+                <div class="volume-bar" title="音量">
+                    <div class="volume-pathway">
+                        <div class="volume-line">
+                        </div>
+
+                        <div class="volume-handle fr"></div>
+                    </div>
+                </div>
+
+                <div class="lyric-btn icon-lyric" title="歌词显示"></div>
+			</div>
+			<!-- 进度条显示区 -->
+			<div class="progress">
+				<div class="time current-time">0:00</div>
+                <div class="time full-time">0:00</div>
+                <div class="progress-bar">
+                    <div class="progress-pathway">
+                        <div class="progress-line">
+                        </div>
+                        <div class="progress-handle"></div>
+                    </div>
+                </div>
+			</div>
+			<!-- 控制区 -->
+			<div class="control clearfix">
+				<div class="prev icon-prev"></div><div class="on-off play icon-start1"></div><div class="next icon-next"></div>
+			</div>
+		</div>
+	</div>
+
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/draggabilly.js"></script>
+
+	
+	<script type="text/javascript" src="js/getmusic.js"></script>
+	<script type="text/javascript" src="js/volume-ctrl.js"></script>
+	<script type="text/javascript" src="js/progress.js"></script>
+	<script type="text/javascript" src="js/panelctrl.js"></script>
+
+	
+
+	<script type="text/javascript">
+
+		new getmusic($('#fm'));
+		new volume($('.volume'));
+		new progress($('.progress'));
+		new PanelCtrl($('#fm'));
+	</script>
+</body>
+</html>

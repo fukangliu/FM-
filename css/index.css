@@ -1,0 +1,433 @@
+/*样式重置：css reset*/
+
+body,h1,h2,h3,h4,p,dl,dd,ul,ol,form,input,textarea,th,td,select{margin:0;padding:0;}
+em{font-style: normal;}
+li{list-style: none;}
+a{text-decoration: none;}
+img{border: none;vertical-align:top;}
+table{border-collapse:collapse;}
+input,textarea{outline:none;}
+textarea{resize:none;overflow: auto;}
+body{font-size: 12px;font-family:"微软雅黑";}
+
+/*重用样式：public css*/
+
+.fl{float:left;}
+.fr{float:right;}
+.clearfix{zoom:1;}
+.clearfix:after{content:'';display:block;clear:both;}
+.auto{margin: 0 auto;}
+
+/*模块化样式：module css*/
+
+
+
+
+
+/*个性化样式：personality css*/
+
+/*外框*/
+#fm{
+	width:300px;
+	height:480px;
+	margin: 100px auto;	
+	position: relative;
+}
+
+#fm .panel{
+	background: url(../img/bg.jpg) no-repeat;
+	display: none;
+}
+/*小窗口*/
+#fm .panel-min-wrap{
+	width:30px;
+	height: 30px;
+	position:absolute;
+	left: -50px;
+	top: 0;
+	cursor: pointer;
+}
+#fm .panel-min{
+	width: 30px;
+	height: 30px;
+	line-height: 30px;
+	text-align: center;
+	font-family: 'iconfont';
+	font-size: 19px;
+	background: #000;
+	color: #555;
+	border-radius: 50%;	
+}
+
+#fm .panel-min-wrap .active{
+	animation-name:rotate;
+	animation-duration:6s;
+	animation-timing-function:linear;
+	animation-fill-mode:forwards;
+	animation-direction:normal;
+	animation-iteration-count:infinite;
+}
+#fm .channels-list li{
+	width: 103px;
+	height: 30px;
+	line-height: 30px;
+	text-align: center;
+	font-size: 14px;
+	color: #292929;
+	border-left: 5px solid transparent;
+	cursor: pointer;
+}
+#fm .channels-list li:hover{
+	background: #db4437;
+	color: #fff;
+}
+#fm .channels-list .active{
+	border-left-color:#db4437;	
+}
+/*头部*/
+#fm .header{
+	width: 300px;
+	height: 50px;
+	position: relative;
+}
+#fm .header .back,#fm .header .title{
+	cursor: pointer;
+	float: left;
+}
+#fm .header .back {
+	
+	width: 50px;
+	height: 50px;
+	line-height: 50px;
+	text-align: center;
+	color: #fff;
+	font-size: 24px;
+}
+
+#fm .header .title{
+	width: 200px;
+	height: 39px;
+	padding-top: 10px;
+	border-bottom: 1px solid #9e8e9b;
+}
+#fm .header .music-name{
+	height: 19px;
+	line-height: 19px;
+	font-size: 13px;
+	color: #fff;
+	font-weight: bold;
+}
+#fm .header .singer{
+	height: 17px;
+	line-height: 17px;
+	font-size: 12px;
+	color: #aaa;	
+}
+#fm .header .channels-wrap{
+	position: absolute;
+	left: 250px;
+	top:0;
+	z-index: 100;
+	cursor: pointer;
+}
+#fm .header .channels-wrap .channels{
+	width: 50px;
+	height: 50px;
+	line-height: 50px;
+	text-align: center;
+	line-height: 50px;
+	font-size: 24px;
+	color: #fff;
+}
+/*频道列表*/
+
+#fm .header .channels-wrap .channels-list{
+	width: 110px;
+	height: 296px;
+	border-top: 1px solid #d7d7d7;
+	border-right: 1px solid #929292;
+	box-shadow: 2px 0 4px #000;
+	background: #fff;
+	padding: 8px 0;
+	margin: 8px 0;
+	overflow: auto;
+	z-index: 2;
+	display: none;
+	/*box-sizing: border-box;*/
+}
+::-webkit-scrollbar {
+    width: 2px;
+    background-color: #fff;
+}
+::-webkit-scrollbar-thumb {
+    background-color: rgba(187, 187, 187, 0.7);
+    height: 10px;
+    border-radius: 3px;
+}
+
+/*主要内容区*/
+#fm .content{
+	width: 300px;
+	height: 240px;
+	position: relative;
+}
+#fm .content .rotate{
+	width: 300px;
+	height: 240px;
+	position: absolute;
+	overflow: hidden;
+	display:block;
+}
+#fm .content .disco {
+	width: 200px;
+	height: 200px;
+	background: url(../img/disc-ip6.png) no-repeat;
+	background-size:contain;
+	position: absolute;
+	left: 51px;
+	top: 40px;
+	border-radius: 50%;
+}
+#fm .content .rotate .active{
+	animation-name:rotate;
+	animation-duration:25s;
+	animation-timing-function:linear;
+	animation-fill-mode:forwards;
+	animation-direction:normal;
+	animation-iteration-count:infinite;
+}
+#fm .content .disco .cover{
+	width: 126px;
+	height: 126px;
+	position: absolute;
+	left:37px; 
+	top:37px;
+	border-radius: 50%;
+}
+#fm .content .disco .current-cover{
+	width: 126px;
+	height: 126px;
+	position: absolute;
+	left:37px; 
+	top:37px;
+	border-radius: 50%;
+	
+}
+
+#fm .content .rotate .needle{
+	width: 55px;
+	height: 81px;
+	background:url(../img/needle.png) no-repeat;
+	background-size: contain;
+	position: absolute;
+	left: 140px;
+	top:-3px;	
+}
+#fm .content .rotate .needle-pause{
+	transition: 0.5s;
+	-webkit-transform-origin: 12px 0;
+	-moz-transform-origin: 12px 0;
+	-webkit-transform: rotate(-25deg);
+	-moz-transform: rotate(-25deg);
+
+}
+#fm .content .rotate .needle-play{
+	transition: 0.5s;
+	-webkit-transform-origin: 12px 0;
+	-moz-transform-origin: 12px 0;
+	-webkit-transform: rotate(0deg);
+	-moz-transform: rotate(0deg);
+}
+#fm .content .lyric{
+	width: 300px;
+	height: 240px;
+	position: absolute;
+	display: none;
+}
+#fm .content .lyric .lyric-ct{
+
+
+	width: 300px;
+	height: 200px;
+	position: absolute;
+    top: 20px;
+    overflow: hidden;
+}
+#fm .content .lyric .lyric-ct .lyric-box{
+	width: 100%;
+	font-family: Arial, '微软雅黑';
+    text-align: center;
+    font-size: 14px;
+    line-height: 40px;
+    overflow: hidden;
+    color: rgba(170, 170, 170, 0.7);
+    position: absolute;
+}
+.light-lyric {
+    color: #fff;
+}
+/*音量控制区*/
+#fm .volume{
+	width: 300px;
+	height: 14px;
+	position: relative;
+	margin-top: 14px;
+}
+
+#fm .volume .volume-button{
+	widows: 14px;
+	height: 14px;
+	line-height: 14px;
+	text-align: center;
+	font-size: 12px;
+	color: #ccc;
+	position: absolute;
+	left: 46px;
+	top: 0;
+	cursor: pointer;
+}
+
+#fm .volume .volume-bar{
+	width: 106px;
+	height:14px;
+	position: absolute;
+	left: 66px;
+	top: 0;
+	cursor: pointer;
+}
+#fm .volume .volume-bar .volume-line{
+	width: 100px;
+	height: 2px;
+	margin-top: 6px;
+	background: #cbcbcc;
+}
+#fm .volume .volume-bar .volume-pathway{
+	background: #56595c;
+	cursor: pointer;
+}
+#fm .volume .volume-bar .volume-handle{
+	width: 6px;
+	height:6px;
+	border-radius: 50%;
+	margin: -4px 0;
+	background: #cdcdce;
+	position: relative;	
+	cursor: pointer;
+}
+#fm .volume .lyric-btn{
+	width: 14px;
+	height: 14px;
+	font-family: 'iconfont';
+	font-size: 14px;
+	color: #8b8d8f;
+	position: absolute;
+	right: 56px;
+	top: 0;
+	cursor: pointer;
+}
+
+/*歌曲进度条区域*/
+#fm .progress{
+	width: 300px;
+	height: 12px;
+	position: relative;
+	margin-top: 18px;
+}
+#fm .progress .current-time,#fm .progress .full-time{
+	width: 26px;
+	line-height: 12px;
+	text-align: center;
+	color: #f1f1f2;
+	position: absolute;
+	top: 0;
+}
+#fm .progress .current-time{
+	left: 16px;
+}
+#fm .progress .full-time{
+	right: 16px;
+}
+
+#fm .progress .progress-bar{
+	width: 210px;
+	height: 12px;
+	position: absolute;
+	left: 46px;
+	top: 0;
+}
+#fm .progress .progress-bar .progress-pathway{
+	width: 100%;
+	height: 2px;
+	background: #545759;
+	margin-top: 5px;
+}
+#fm .progress .progress-bar .progress-line{
+	height: 2px;
+	background: #db4437;
+	position: absolute;
+	left: 0;
+	top: 5px;
+}
+#fm .progress .progress-bar .progress-handle{
+	width: 12px;
+	height: 12px;
+	background: #ffffff;
+	border-radius: 50%;
+	position: relative;
+	top: -5px;
+	cursor: pointer;
+}
+
+/*控制区*/
+
+#fm .control{
+	width: 180px;
+	height: 54px;
+	padding: 24px 60px;
+
+}
+#fm .control div{
+	float: left;
+	cursor: pointer;
+}
+#fm .control .prev,#fm .control .next{
+	width: 38px;
+	height: 38px;
+	border: 1px solid #f5f5f5;
+	border-radius: 50%;
+	margin-top: 7px;
+	font-family: 'iconfont';
+	line-height: 39px;
+	text-align: center;
+	font-size: 14px;
+	color: #ffffff;
+}
+
+#fm .control .on-off{
+	width: 52px;
+	height: 52px;
+	border: 1px solid #f5f5f5;
+	border-radius: 50%;
+	font-family: 'iconfont';
+	line-height: 52px;
+	text-align: center;
+	color: #fff;
+	font-size: 30px;
+	margin: 0 23px;
+
+}
+
+/*ratate 动画*/
+
+
+@keyframes rotate{
+	0%{
+		-webkit-transform:rotate(0deg);
+		-moz-transform:rotate(0deg);
+	}
+	100%{
+		-webkit-transform:rotate(360deg);
+		-moz-transform:rotate(360deg);
+	}
+}
+
